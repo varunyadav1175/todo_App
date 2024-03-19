@@ -23,23 +23,25 @@ Creates a new todo.
     "description": "This is a sample todo item."
 }
 
-**Response:**
+Response:
 
+json
+Copy code
 {
     "id": 1,
     "title": "Sample Todo",
     "description": "This is a sample todo item.",
     "completed": false
 }
-
-###Get Todos
-
-**GET** `/todos`
+Get Todos
+GET /todos
 
 Returns all todos.
 
-**Response:**
+Response:
 
+json
+Copy code
 [
     {
         "id": 1,
@@ -49,42 +51,45 @@ Returns all todos.
     },
     // More todos...
 ]
-
-###Update Todo
-
-**PUT** `/completed`
+Update Todo
+PUT /completed
 
 Completes a specific todo.
 
-**Request Body:**
+Request Body:
 
+json
+Copy code
 {
-    "id" : "65f9ea66ccb6a67089f80c92"
+    "id": "65f9ea66ccb6a67089f80c92"
 }
+Response:
 
-**Response:**
+json
+Copy code
 {
     "title": "Updated Todo",
     "description": "This is an updated todo item.",
     "completed": true
 }
-
-###Delete Todo
-
-**DELETE** `/todo`
+Delete Todo
+DELETE /todo/:id
 
 Deletes a specific todo.
 
-**Request Body:**
+Request Params:
 
-{
-    "title": "Updated Todo",
-    "description": "This is an updated todo item.",
-    "completed": true
-}
+id: The ID of the todo to be deleted.
+Response:
 
-**Response:**
-
+json
+Copy code
 {
     "message": "Todo deleted successfully."
 }
+Error Handling
+400 Bad Request: If the request is malformed or missing required parameters.
+404 Not Found: If the requested resource (todo) does not exist.
+500 Internal Server Error: If an unexpected error occurs on the server.
+Contributing
+Contributions are welcome! Feel free to submit issues or pull requests.
